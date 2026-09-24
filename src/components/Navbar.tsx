@@ -40,11 +40,15 @@ const Navbar = () => {
   );
 
   return (
-    <nav className="bg-[#0C0D10] border-b border-[#1C1F26]">
+    <nav className="bg-[#0C0D10] border-b border-[#1C1F26] sticky top-0 z-50 backdrop-blur-2xl">
       <div className="navbar container mx-auto">
         <div className="navbar-start">
           <div className="dropdown">
-            <div tabIndex={0} role="button" className="btn btn-ghost lg:hidden">
+            <div
+              tabIndex={0}
+              role="button"
+              className="btn btn-ghost lg:hidden text-white"
+            >
               <svg
                 aria-label="Menu"
                 xmlns="http://www.w3.org/2000/svg"
@@ -64,7 +68,7 @@ const Navbar = () => {
             </div>
             <ul
               tabIndex={-1}
-              className="menu menu-sm dropdown-content bg-base-100 rounded-box z-1 mt-3 w-52 p-2 shadow"
+              className="menu menu-sm dropdown-content  bg-black text-white rounded-box z-1 mt-3 w-52 p-2 shadow"
             >
               <li>
                 <a>Item 1</a>
@@ -74,7 +78,10 @@ const Navbar = () => {
               </li>
             </ul>
           </div>
-          <Link href="/" className="text-[#FFFFFF] flex gap-2 items-center">
+          <Link
+            href="/"
+            className="text-[#FFFFFF] flex gap-2 items-center font-bold"
+          >
             <Image src={logo} alt="logo" />
             FITLOG
           </Link>
