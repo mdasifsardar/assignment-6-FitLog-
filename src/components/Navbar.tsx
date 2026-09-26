@@ -5,9 +5,11 @@ import logo from "@/assets/logo.png";
 import Link from "next/link";
 import Image from "next/image";
 import { usePathname } from "next/navigation";
+import { useWorkout } from "@/context/WorkoutContext";
 
 const Navbar = () => {
   const pathname = usePathname();
+  const { planList, savedList } = useWorkout();
 
   const links = (
     <>
@@ -70,12 +72,7 @@ const Navbar = () => {
               tabIndex={-1}
               className="menu menu-sm dropdown-content  bg-black text-white rounded-box z-1 mt-3 w-52 p-2 shadow"
             >
-              <li>
-                <a>Item 1</a>
-              </li>
-              <li>
-                <a>Item 3</a>
-              </li>
+              {links}
             </ul>
           </div>
           <Link
@@ -91,9 +88,26 @@ const Navbar = () => {
         </div>
 
         {/* button */}
-        <div className="navbar-end text-center space-x-2">
-          <a className="btn">Plan 0</a>
-          <a className="btn">Saved 0</a>
+        <div className="navbar-end flex items-center justify-end gap-6">
+          <Link
+            href="/myplan"
+            className="flex items-center gap-2 text-sm font-medium text-[#E5E7EB] cursor-pointer"
+          >
+            Plan
+            <span className="flex h-6 w-6 items-center justify-center rounded-full bg-[#C2F800] text-xs font-bold text-black">
+              {planList.length}
+            </span>
+          </Link>
+
+          <Link
+            href="/myplan"
+            className="flex items-center gap-2 text-sm font-medium text-[#9CA3AF] cursor-pointer hover:text-white transition"
+          >
+            Saved
+            <span className="flex h-6 w-6 items-center justify-center rounded-full border border-[#2D333F] bg-[#1A1D24] text-xs font-medium text-[#D1D5DB]">
+              {savedList.length}
+            </span>
+          </Link>
         </div>
       </div>
     </nav>

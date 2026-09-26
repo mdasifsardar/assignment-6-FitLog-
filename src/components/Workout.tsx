@@ -10,7 +10,6 @@ const workoutsPromise = async () => {
 
 const Workout = async () => {
   const workouts = await workoutsPromise();
-  console.log(workouts);
 
   return (
     <section className="container mx-auto mt-[64px] mb-[4px] p-4 lg:p-0 sm:p-0 md:p0 ">

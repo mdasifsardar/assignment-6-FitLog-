@@ -1,6 +1,7 @@
 import { IWorkout } from "@/types/types";
 import { Clock, Flame, Star } from "lucide-react";
 import Image from "next/image";
+import Link from "next/link";
 import React from "react";
 interface IWorkoutCardProps {
   workout: IWorkout;
@@ -8,6 +9,7 @@ interface IWorkoutCardProps {
 
 const WorkoutCard = ({ workout }: IWorkoutCardProps) => {
   const {
+    id,
     name,
     image,
     muscleGroups,
@@ -18,7 +20,7 @@ const WorkoutCard = ({ workout }: IWorkoutCardProps) => {
   } = workout;
 
   return (
-    <section>
+    <Link href={`/workouts/${id}`}>
       <div className="card w-full overflow-hidden  bg-[#15171D] shadow-sm rounded-2xl">
         <figure className="w-full overflow-hidden">
           <Image
@@ -26,7 +28,7 @@ const WorkoutCard = ({ workout }: IWorkoutCardProps) => {
             alt="workout"
             width={392}
             height={192}
-            className="h-48 w-full object-cover"
+            className="h-[250px] w-full object-cover"
           />
         </figure>
 
@@ -64,7 +66,7 @@ const WorkoutCard = ({ workout }: IWorkoutCardProps) => {
           </div>
         </div>
       </div>
-    </section>
+    </Link>
   );
 };
 
